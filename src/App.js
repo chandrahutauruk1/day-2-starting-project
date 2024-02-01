@@ -1,26 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
 import Headers from './Components/Header/Header';
+import CoreConcept from './Components/CoreConcepts/CoreConcepts';
+import { CORE_CONCEPT_ITEM } from './Data/data';
 
 function App() {
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+    <div>
       <Headers></Headers>
-      <main>sdsdsdsd</main>
+      <main>
+        <section id='core-concepts'>
+              <h2>Core Concept</h2>
+              <ul>
+              {
+                CORE_CONCEPT_ITEM.map((allData, id) =>(
+                  <CoreConcept 
+                    key={id}
+                    Image={allData.image} 
+                    title={allData.title} 
+                    description={allData.description}
+                    >
+                    </CoreConcept>
+                ))}
+              </ul>
+        </section>
+      </main>
+
     </div>
   );
 }
