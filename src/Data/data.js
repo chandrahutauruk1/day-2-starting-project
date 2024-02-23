@@ -28,3 +28,10 @@ export const CORE_CONCEPT_ITEM = [
     }
     
 ]
+
+export const Examples = {
+    components: {
+        title: 'Components',
+        description : 'Components are the building blocks of React applications.'
+    }
+}
