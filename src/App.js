@@ -4,9 +4,10 @@ import CoreConcept from './Components/CoreConcepts/CoreConcepts';
 import { CORE_CONCEPT_ITEM } from './Data/data';
 import TabButton from './Components/TabButton/TabButton';
 import Card from './Components/Cards/Cards';
+import { Examples } from './Data/data';
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
+  const [ selectedTopic, setSelectedTopic ] = useState();
 
   // let tabContent = 'Please click a button'
   function handleSelect(selectedButton) {
@@ -43,8 +44,26 @@ function App() {
              <TabButton onSelect={() => {handleSelect('props')}}>Props</TabButton>
              <TabButton onSelect={() => {handleSelect('state')}}>State</TabButton>
           </menu>
-          {selectedTopic}
+          {/* {selectedTopic} */}
         </section>
+        {/* {!selectedTopic ? <p>Please selected a topic.</p> : null}
+        { selectedTopic ? (<div id="tab-content">
+          <h3>{Examples[selectedTopic].title}</h3>
+          <p>{Examples[selectedTopic].description}</p>
+          <pre>
+            <code>{Examples[selectedTopic].code}</code>
+          </pre>
+        </div>) 
+        : null}  */}
+        {!selectedTopic && <p>Please selected a topic.</p>}
+        {selectedTopic && (<div id="tab-content">
+          <h3>{Examples[selectedTopic].title}</h3>
+          <p>{Examples[selectedTopic].description}</p>
+          <pre>
+            <code>{Examples[selectedTopic].code}</code>
+          </pre>
+        </div>)}
+
       </main>
        {/* <Card name="Maria Miller">
        <p> Maria is a professor of Computer Science at the University of Illinois.</p>
@@ -53,6 +72,7 @@ function App() {
       </p>
        </Card>          */}
        {/* () => {handleSelect('component')} => ini adalah cara untuk mengirimkan function ke props Tab tapi ini juga digunakan untuk mengirimkan value nya apa yg dibuat */}
+      
     </div>
   );
 }
